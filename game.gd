@@ -24,3 +24,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		else:
 			_pause_menu.close()
 		get_tree().root.set_input_as_handled()
+
+
+func _on_player_game_over() -> void:
+	pass # Replace with function body.

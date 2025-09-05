@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctamax73ghi1l"]
+
+[ext_resource type="Script" uid="uid://06abkvb6oqta" path="res://gui/battle_menu.gd" id="2_hynn4"]
+[ext_resource type="Texture2D" uid="uid://hqr5av4nn605" path="res://level/hp_empty.png" id="3_8xv8c"]
+[ext_resource type="Texture2D" uid="uid://cnrd475rwqs85" path="res://level/hp_gauge.png" id="4_lptxi"]
+
+[sub_resource type="SpriteFrames" id="6"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[node name="BattleMenu" type="Panel"]
+offset_left = 113.0
+offset_top = 9.0
+offset_right = 268.0
+offset_bottom = 49.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+script = ExtResource("2_hynn4")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -3.0
+offset_right = -7.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 32
+text = "Stage 1-1"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(111, 308)
+sprite_frames = SubResource("6")
+animation = &"new_animation"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(52, 445)
+scale = Vector2(3.04, 2.125)
+texture = ExtResource("3_8xv8c")
+
+[node name="Sprite2D_2" type="Sprite2D" parent="."]
+position = Vector2(52, 445)
+scale = Vector2(3.04, 2.125)
+texture = ExtResource("4_lptxi")

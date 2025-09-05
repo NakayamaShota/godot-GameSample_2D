@@ -1,9 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://6mtip3ruyn"]
+[gd_scene load_steps=17 format=3 uid="uid://6mtip3ruyn"]
 
 [ext_resource type="Texture2D" uid="uid://coj0d33vyyqx1" path="res://player/bullet.webp" id="1"]
 [ext_resource type="AudioStream" uid="uid://duwm7i44o75o2" path="res://enemy/explode.wav" id="2"]
 [ext_resource type="AudioStream" uid="uid://dm7wsawmylc7b" path="res://enemy/hit.wav" id="3"]
+[ext_resource type="Script" uid="uid://dad8luj6wmffi" path="res://enemy/gun_enemy.gd" id="3_y5vj3"]
 [ext_resource type="Texture2D" uid="uid://bjjywmvba0sve" path="res://enemy/enemy.webp" id="4"]
+[ext_resource type="AudioStream" uid="uid://b01brytl75mwa" path="res://player/shoot.wav" id="4_5ffra"]
 [ext_resource type="Script" uid="uid://cic7bqxvgc40e" path="res://enemy/enemy.gd" id="5"]
 
 [sub_resource type="CanvasItemMaterial" id="1"]
@@ -270,11 +272,22 @@ collision_mask = 24
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("1")
-position = Vector2(-2, -0.999998)
 scale = Vector2(2.641, 2)
 texture = ExtResource("4")
 hframes = 8
 vframes = 8
+
+[node name="GunEnemy" type="Marker2D" parent="Sprite2D"]
+position = Vector2(14, 1)
+script = ExtResource("3_y5vj3")
+
+[node name="Shoot" type="AudioStreamPlayer2D" parent="Sprite2D/GunEnemy"]
+position = Vector2(-30.6589, -6.13176)
+stream = ExtResource("4_5ffra")
+
+[node name="Cooldown" type="Timer" parent="Sprite2D/GunEnemy"]
+wait_time = 0.3
+one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

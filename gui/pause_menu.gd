@@ -72,8 +72,11 @@ func _on_start_button_pressed() -> void:
 		# キャラデータ.   
 		var player = {}
 		player["name"] = "player"
-		player["coins"] = g_singleton.get_coins_num()
+		player["coins"] = g_singleton.coins_num
 		player["position"] = g_singleton.GetReference("Player").get_position()
+		player["playerHp"] = g_singleton.playerHp
+		player["playerMaxHp"] = g_singleton.playerMaxHp
+
 		# キャラリスト
 		var chara_list = [player]
 		
@@ -101,18 +104,18 @@ func _on_load_button_pressed() -> void:
 		var savedata = str_to_var(s)
 		var test = ""
 		for chara in savedata["chara_list"]:
-			print("-------------")
-			print("name: %s"%chara["name"])
-			print("coins: %s"%chara["coins"])
 			g_singleton.playerPosition = chara["position"]		
 			g_singleton.coins_num = chara["coins"]
+			g_singleton.playerHp = chara["playerHp"]
+			g_singleton.playerMaxHp = chara["playerMaxHp"]
+
 			# ファイルを閉じる.
 			f.close()
 
 func _on_title_button_pressed() -> void:
 	if visible:
 		get_tree().paused = false
-		get_tree().change_scene_to_file("res://canvas_layer.tscn")
+		get_tree().change_scene_to_file("res://title.tscn")
 
 func _on_quit_button_pressed() -> void:
 	if visible:

@@ -4,6 +4,9 @@ extends CharacterBody2D
 @warning_ignore("unused_signal")
 signal coin_collected()
 signal game_clear()
+signal game_over()
+signal player_damage()
+
 
 const WALK_SPEED = 200.0
 const ACCELERATION_SPEED = WALK_SPEED * 6.0
@@ -23,7 +26,10 @@ var gravity: int = ProjectSettings.get("physics/2d/default_gravity")
 @onready var jump_sound := $Jump as AudioStreamPlayer2D
 @onready var gun: Gun = sprite.get_node(^"Gun")
 @onready var camera := $Camera as Camera2D
+
+
 var _double_jump_charged := false
+var hit := false
 
 
 func _ready():
@@ -32,6 +38,26 @@ func _ready():
 	# ロード時はプレイヤーの位置情報を基に移動
 	if g_singleton.playerPosition :
 		self.set_position(g_singleton.playerPosition)
+
+func destroy() -> void:
+	if (hit == true):
+		pass
+	else:
+		g_singleton.playerHp = g_singleton.playerHp - 1
+		player_damage.emit()
+		if(g_singleton.playerHp == 0) :
+			velocity = Vector2.ZERO
+			game_over.emit()
+		hit = true
+			# tweenの作成
+		var tween = get_tree().create_tween()
+		for _i in range(3):
+			# 1秒かけて透明にする
+			tween.tween_property(self, "modulate", Color(1,1,1,0), 0.2).set_trans(Tween.TRANS_CUBIC)
+			# 1秒かけて不透明にする
+			tween.tween_property(self, "modulate", Color(1,1,1,1), 0.2).set_trans(Tween.TRANS_CUBIC)
+		await get_tree().create_timer(1.2).timeout
+		hit = false
 
 func _physics_process(delta: float) -> void:
 	if is_on_floor():
@@ -81,6 +107,8 @@ func get_new_animation(is_shooting := false) -> String:
 			animation_new = "jumping"
 	if is_shooting:
 		animation_new += "_weapon"
+	if hit == true :
+		animation_new = "damage"
 	return animation_new
 
 

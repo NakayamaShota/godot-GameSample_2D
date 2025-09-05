@@ -5,9 +5,8 @@ extends Node
 # 普通のクラスのように書く
 var coins_num: int = 0
 var playerPosition = ""
-
-func get_coins_num():
-	return coins_num
+var playerHp: int = 3
+var playerMaxHp: int = 3
 
 ####情報を保存するやつ（あとで全部これにする
 var references = {}

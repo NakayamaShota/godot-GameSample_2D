@@ -1,10 +1,25 @@
-[gd_scene load_steps=18 format=3 uid="uid://vh7pmputa7r3"]
+[gd_scene load_steps=20 format=3 uid="uid://vh7pmputa7r3"]
 
 [ext_resource type="Texture2D" uid="uid://b23elfeimhew1" path="res://player/player.webp" id="2_qjkh3"]
 [ext_resource type="Script" uid="uid://3kovi8hshvar" path="res://player/player.gd" id="3"]
 [ext_resource type="AudioStream" uid="uid://sjod173axgwf" path="res://player/jump.wav" id="5"]
 [ext_resource type="AudioStream" uid="uid://b01brytl75mwa" path="res://player/shoot.wav" id="6"]
 [ext_resource type="Script" uid="uid://c3cm5mpl2xelv" path="res://player/gun.gd" id="8"]
+
+[sub_resource type="Animation" id="Animation_g6k8r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [48]
+}
 
 [sub_resource type="Animation" id="1"]
 resource_name = "crouch"
@@ -21,6 +36,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [42]
+}
+
+[sub_resource type="Animation" id="Animation_qjkh3"]
+resource_name = "damage"
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [51]
 }
 
 [sub_resource type="Animation" id="2"]
@@ -170,7 +201,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jnr5f"]
 _data = {
+&"RESET": SubResource("Animation_g6k8r"),
 &"crouch": SubResource("1"),
+&"damage": SubResource("Animation_qjkh3"),
 &"falling": SubResource("2"),
 &"falling_weapon": SubResource("3"),
 &"idle": SubResource("4"),
@@ -206,7 +239,7 @@ scale = Vector2(1, 2)
 texture = ExtResource("2_qjkh3")
 hframes = 36
 vframes = 8
-frame = 36
+frame = 48
 
 [node name="Gun" type="Marker2D" parent="Sprite2D"]
 position = Vector2(14, 1)

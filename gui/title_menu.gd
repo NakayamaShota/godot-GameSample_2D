@@ -54,6 +54,7 @@ func _on_coin_collected() -> void:
 func _on_start_button_pressed() -> void:
 	g_singleton.playerPosition = ""
 	g_singleton.coins_num = 0
+	g_singleton.playerHp = 3
 	get_tree().change_scene_to_file("res://game_singleplayer.tscn")
 
 ## セーブデータのファイルパス.
@@ -72,11 +73,10 @@ func _on_load_button_pressed() -> void:
 	var savedata = str_to_var(s)
 	var test = ""
 	for chara in savedata["chara_list"]:
-		print("-------------")
-		print("name: %s"%chara["name"])
-		print("coins: %s"%chara["coins"])
 		g_singleton.playerPosition = chara["position"]		
 		g_singleton.coins_num = chara["coins"]
+		g_singleton.playerHp = chara["playerHp"]
+		g_singleton.playerMaxHp = chara["playerMaxHp"]
 
 		# ファイルを閉じる.
 		f.close()

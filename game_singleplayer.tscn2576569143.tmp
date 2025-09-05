@@ -18,6 +18,7 @@ script = ExtResource("2")
 z_index = 3
 position = Vector2(91, 611)
 scale = Vector2(1, 1)
+action_suffix = null
 
 [node name="InterfaceLayer" type="CanvasLayer" parent="."]
 layer = 100
@@ -33,4 +34,3 @@ layer = 100
 [connection signal="coin_collected" from="Level/Player" to="InterfaceLayer/PauseMenu" method="_on_coin_collected"]
 [connection signal="game_clear" from="Level/Player" to="InterfaceLayer/GameClear" method="_on_player_game_clear"]
 [connection signal="game_over" from="Level/Player" to="InterfaceLayer/GameOver" method="_on_player_game_over"]
-[connection signal="player_damage" from="Level/Player" to="InterfaceLayer/BattleMenu2" method="_on_player_player_damage"]

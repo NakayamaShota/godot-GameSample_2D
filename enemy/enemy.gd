@@ -16,6 +16,10 @@ var _state := State.WALKING
 @onready var floor_detector_right := $FloorDetectorRight as RayCast2D
 @onready var sprite := $Sprite2D as Sprite2D
 @onready var animation_player := $AnimationPlayer as AnimationPlayer
+@onready var gun: GunEnemy = sprite.get_node(^"GunEnemy")
+
+#test
+var is_shooting := false
 
 
 func _physics_process(delta: float) -> void:
@@ -34,6 +38,7 @@ func _physics_process(delta: float) -> void:
 
 	if velocity.x > 0.0:
 		sprite.scale.x = 0.8
+
 	elif velocity.x < 0.0:
 		sprite.scale.x = -0.8
 
@@ -54,6 +59,8 @@ func get_new_animation() -> StringName:
 			animation_new = &"idle"
 		else:
 			animation_new = &"walk"
+			gun.shoot(sprite.scale.x)
+
 	else:
 		animation_new = &"destroy"
 	return animation_new
