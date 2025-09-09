@@ -66,10 +66,10 @@ text = "QUIT"
 
 [node name="CoinsCounter" parent="ColorRect" instance=ExtResource("3_p1cwu")]
 layout_mode = 0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 105.0
-offset_bottom = 50.0
+offset_left = 694.0
+offset_top = 2.0
+offset_right = 799.0
+offset_bottom = 52.0
 
 [connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]

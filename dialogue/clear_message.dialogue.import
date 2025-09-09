@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://sm3dnngtaocm"
+path="res://.godot/imported/clear_message.dialogue-56df829f4f1ef9040c667a7d9c97843a.tres"
+
+[deps]
+
+source_file="res://dialogue/clear_message.dialogue"
+dest_files=["res://.godot/imported/clear_message.dialogue-56df829f4f1ef9040c667a7d9c97843a.tres"]
+
+[params]
+
+defaults=true

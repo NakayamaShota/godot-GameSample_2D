@@ -38,6 +38,9 @@ func _ready():
 	# ロード時はプレイヤーの位置情報を基に移動
 	if g_singleton.playerPosition :
 		self.set_position(g_singleton.playerPosition)
+	
+#	DialogueManager.show_example_dialogue_balloon(load("res://dialogue/talk1.dialogue"), "start")
+	DialogueManager.show_dialogue_balloon(load("res://dialogue/tutorial.dialogue"), "start")
 
 func destroy() -> void:
 	if (hit == true):
