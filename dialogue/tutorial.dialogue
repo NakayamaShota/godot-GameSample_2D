@@ -1,3 +1,4 @@
+signal player_damage()
 ~ start
 システムメッセージ : 移動：WASD\nジャンプ:W\n攻撃:Click/Space\nダイアログを閉じる:Click/Space
 

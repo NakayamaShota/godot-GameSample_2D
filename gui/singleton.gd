@@ -7,6 +7,8 @@ var coins_num: int = 0
 var playerPosition = ""
 var playerHp: int = 3
 var playerMaxHp: int = 3
+var clearRoute = ""
+var newGameFlg: int = 0
 
 ####情報を保存するやつ（あとで全部これにする
 var references = {}

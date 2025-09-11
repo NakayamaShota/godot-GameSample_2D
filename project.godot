@@ -180,7 +180,7 @@ splitscreen={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogue/tutorial.dialogue", "res://dialogue/clear_message.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogue/tutorial.dialogue", "res://dialogue/clear_message.dialogue", "res://dialogue/default.dialogue")
 
 [layer_names]
 

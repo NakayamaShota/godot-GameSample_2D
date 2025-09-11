@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4yq3t2r1fkg2"
-path="res://.godot/imported/hp_gauge.png-7a9feb5d75e3a5a98d91baec0802d991.ctex"
+uid="uid://be77vxno6iese"
+path="res://.godot/imported/player_stand.webp-a7542074ba93c22b3a39e207c1ba3c6a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level/hp_gauge.png"
-dest_files=["res://.godot/imported/hp_gauge.png-7a9feb5d75e3a5a98d91baec0802d991.ctex"]
+source_file="res://player/player_stand.webp"
+dest_files=["res://.godot/imported/player_stand.webp-a7542074ba93c22b3a39e207c1ba3c6a.ctex"]
 
 [params]
 

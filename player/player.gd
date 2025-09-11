@@ -26,6 +26,7 @@ var gravity: int = ProjectSettings.get("physics/2d/default_gravity")
 @onready var jump_sound := $Jump as AudioStreamPlayer2D
 @onready var gun: Gun = sprite.get_node(^"Gun")
 @onready var camera := $Camera as Camera2D
+@onready var stand_pic :=  $"../../InterfaceLayer/BattleMenu2/PlayerStandPic" as Sprite2D
 
 
 var _double_jump_charged := false
@@ -33,14 +34,37 @@ var hit := false
 
 
 func _ready():
+	stand_pic.hide()
 	# プレイヤーをゲームマネージャーに追加して、簡単に参照できるようにする
 	g_singleton.AddReference("Player", self)
 	# ロード時はプレイヤーの位置情報を基に移動
 	if g_singleton.playerPosition :
 		self.set_position(g_singleton.playerPosition)
-	
-#	DialogueManager.show_example_dialogue_balloon(load("res://dialogue/talk1.dialogue"), "start")
-	DialogueManager.show_dialogue_balloon(load("res://dialogue/tutorial.dialogue"), "start")
+
+	if g_singleton.newGameFlg  == 1:
+		dialogue("tutorial")
+
+func dialogue(message := "") -> void:
+	get_tree().paused = true
+	stand_pic.show()
+
+	if message == "tutorial":
+		g_singleton.newGameFlg = 0
+		DialogueManager.show_dialogue_balloon(load("res://dialogue/tutorial.dialogue"), "start")
+		await DialogueManager.dialogue_ended
+	elif message == "gameClear":
+		DialogueManager.show_dialogue_balloon(load("res://dialogue/clear_message.dialogue"), "start")
+		await DialogueManager.dialogue_ended
+	stand_pic.hide()	
+	get_tree().paused = false
+	#クリア時の分岐処理
+	if g_singleton.clearRoute == "recycle":
+		g_singleton.clearRoute = ""
+		get_tree().change_scene_to_file("res://title.tscn")
+	elif g_singleton.clearRoute == "break":
+		g_singleton.clearRoute = ""
+		get_tree().quit()
+
 
 func destroy() -> void:
 	if (hit == true):

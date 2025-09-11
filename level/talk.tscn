@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://up3pcv62denq"]
+
+[ext_resource type="Texture2D" uid="uid://b02x8k3pmipyd" path="res://level/props/goal.webp" id="2_jcjs5"]
+
+[sub_resource type="GDScript" id="GDScript_m6j24"]
+script/source = "class_name Talk
+extends Area2D
+## Collectible that disappears when the player touches it.
+
+
+@onready var animation_player := $AnimationPlayer as AnimationPlayer
+
+
+func _on_body_entered(body: Node2D) -> void:
+	animation_player.play(&\"picked\")
+	(body as Player).coin_collected.emit()
+	(body as Player).game_clear.emit()
+	
+"
+
+[node name="talk" type="Area2D"]
+collision_layer = 0
+monitorable = false
+script = SubResource("GDScript_m6j24")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("2_jcjs5")

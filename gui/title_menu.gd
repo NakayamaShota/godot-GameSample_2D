@@ -47,15 +47,13 @@ func open() -> void:
 	).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 
 
-func _on_coin_collected() -> void:
-	coins_counter.collect_coin()
-
-
 func _on_start_button_pressed() -> void:
 	g_singleton.playerPosition = ""
 	g_singleton.coins_num = 0
 	g_singleton.playerHp = 3
+	g_singleton.newGameFlg = 1
 	get_tree().change_scene_to_file("res://game_singleplayer.tscn")
+
 
 ## セーブデータのファイルパス.
 const PATH_SAVEDATA = "user://savedata.txt"
