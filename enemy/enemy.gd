@@ -17,10 +17,14 @@ var _state := State.WALKING
 @onready var sprite := $Sprite2D as Sprite2D
 @onready var animation_player := $AnimationPlayer as AnimationPlayer
 @onready var gun: GunEnemy = sprite.get_node(^"GunEnemy")
+@onready var enemy_hp := $EnemyHpBar as ProgressBar
+
 
 #test
 var is_shooting := false
 
+func _ready() -> void:
+	enemy_hp.value = 100
 
 func _physics_process(delta: float) -> void:
 	if _state == State.WALKING and velocity.is_zero_approx():
@@ -48,8 +52,10 @@ func _physics_process(delta: float) -> void:
 
 
 func destroy() -> void:
-	_state = State.DEAD
-	velocity = Vector2.ZERO
+	enemy_hp.value -= 20
+	if enemy_hp.value == 0:
+		_state = State.DEAD
+		velocity = Vector2.ZERO
 
 
 func get_new_animation() -> StringName:

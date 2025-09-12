@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://6mtip3ruyn"]
+[gd_scene load_steps=19 format=3 uid="uid://6mtip3ruyn"]
 
 [ext_resource type="Texture2D" uid="uid://coj0d33vyyqx1" path="res://player/bullet.webp" id="1"]
 [ext_resource type="AudioStream" uid="uid://duwm7i44o75o2" path="res://enemy/explode.wav" id="2"]
@@ -250,6 +250,16 @@ blend_mode = 1
 offsets = PackedFloat32Array(0.5, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y5vj3"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ffra"]
+bg_color = Color(0.905882, 0, 0.2, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 24
@@ -321,3 +331,12 @@ stream = ExtResource("3")
 
 [node name="Explode" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2")
+
+[node name="EnemyHpBar" type="ProgressBar" parent="."]
+offset_left = -28.0
+offset_top = -42.0
+offset_right = 35.0
+offset_bottom = -34.0
+theme_override_styles/background = SubResource("StyleBoxFlat_y5vj3")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5ffra")
+show_percentage = false
