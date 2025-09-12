@@ -76,7 +76,7 @@ func destroy() -> void:
 			velocity = Vector2.ZERO
 			game_over.emit()
 		hit = true
-			# tweenの作成
+		# tweenの作成
 		var tween = get_tree().create_tween()
 		for _i in range(3):
 			# 1秒かけて透明にする

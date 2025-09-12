@@ -9,6 +9,7 @@ enum State {
 const WALK_SPEED = 22.0
 
 var _state := State.WALKING
+var hit := false
 
 @onready var gravity: int = ProjectSettings.get("physics/2d/default_gravity")
 @onready var platform_detector := $PlatformDetector as RayCast2D
@@ -52,7 +53,20 @@ func _physics_process(delta: float) -> void:
 
 
 func destroy() -> void:
-	enemy_hp.value -= 20
+	if hit == true:
+		pass
+	elif hit == false:
+		hit = true
+		enemy_hp.value -= 20
+		# tweenの作成
+		var tween = get_tree().create_tween()
+		for _i in range(3):
+			# 1秒かけて透明にする
+			tween.tween_property(self, "modulate", Color(1,1,1,0), 0.2).set_trans(Tween.TRANS_CUBIC)
+				# 1秒かけて不透明にする
+			tween.tween_property(self, "modulate", Color(1,1,1,1), 0.2).set_trans(Tween.TRANS_CUBIC)
+		await get_tree().create_timer(1.2).timeout
+		hit	= false
 	if enemy_hp.value == 0:
 		_state = State.DEAD
 		velocity = Vector2.ZERO
