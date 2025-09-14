@@ -49,12 +49,15 @@ func dialogue(message := "") -> void:
 	stand_pic.show()
 
 	if message == "tutorial":
+		$"/root/Music".play()
 		g_singleton.newGameFlg = 0
 		DialogueManager.show_dialogue_balloon(load("res://dialogue/tutorial.dialogue"), "start")
 		await DialogueManager.dialogue_ended
 	elif message == "gameClear":
+		$"/root/GameClearMusic".play()		
 		DialogueManager.show_dialogue_balloon(load("res://dialogue/clear_message.dialogue"), "start")
 		await DialogueManager.dialogue_ended
+		$"/root/GameClearMusic".stop()	
 	stand_pic.hide()	
 	get_tree().paused = false
 	#クリア時の分岐処理

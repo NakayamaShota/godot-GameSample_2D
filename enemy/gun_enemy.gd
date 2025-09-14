@@ -22,4 +22,5 @@ func shoot(direction: float = 1.0) -> bool:
 	add_child(bullet)
 	sound_shoot.play()
 	timer.start()
+	await get_tree().create_timer(1).timeout
 	return true

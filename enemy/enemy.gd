@@ -28,6 +28,8 @@ func _ready() -> void:
 	enemy_hp.value = 100
 
 func _physics_process(delta: float) -> void:
+
+
 	if _state == State.WALKING and velocity.is_zero_approx():
 		velocity.x = WALK_SPEED
 	velocity.y += gravity * delta
@@ -47,7 +49,15 @@ func _physics_process(delta: float) -> void:
 	elif velocity.x < 0.0:
 		sprite.scale.x = -0.8
 
+
+
 	var animation := get_new_animation()
+
+
+	if animation_player.current_animation == "shot":
+		return
+
+	
 	if animation != animation_player.current_animation:
 		animation_player.play(animation)
 
@@ -62,15 +72,14 @@ func destroy() -> void:
 		var tween = get_tree().create_tween()
 		for _i in range(3):
 			# 1秒かけて透明にする
-			tween.tween_property(self, "modulate", Color(1,1,1,0), 0.2).set_trans(Tween.TRANS_CUBIC)
+			tween.tween_property(self, "modulate", Color(1,1,1,0), 0.05).set_trans(Tween.TRANS_CUBIC)
 				# 1秒かけて不透明にする
-			tween.tween_property(self, "modulate", Color(1,1,1,1), 0.2).set_trans(Tween.TRANS_CUBIC)
-		await get_tree().create_timer(1.2).timeout
+			tween.tween_property(self, "modulate", Color(1,1,1,1), 0.05).set_trans(Tween.TRANS_CUBIC)
+		await get_tree().create_timer(0.3).timeout
 		hit	= false
 	if enemy_hp.value == 0:
 		_state = State.DEAD
 		velocity = Vector2.ZERO
-
 
 func get_new_animation() -> StringName:
 	var animation_new: StringName
@@ -79,8 +88,11 @@ func get_new_animation() -> StringName:
 			animation_new = &"idle"
 		else:
 			animation_new = &"walk"
+		if randi() % 30 == 1:
 			gun.shoot(sprite.scale.x)
+			animation_new = &"shot"
 
 	else:
 		animation_new = &"destroy"
+
 	return animation_new

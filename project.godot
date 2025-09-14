@@ -28,6 +28,7 @@ config/icon="res://icon.webp"
 Music="*res://music.tscn"
 g_singleton="*res://gui/singleton.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+GameClearMusic="*res://game_clear_music.tscn"
 
 [debug]
 
