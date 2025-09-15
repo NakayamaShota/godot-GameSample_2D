@@ -1261,6 +1261,10 @@ position = Vector2(492, 610)
 z_index = 2
 position = Vector2(395, 53)
 
+[node name="Enemy5" parent="Enemies" instance=ExtResource("2")]
+z_index = 2
+position = Vector2(634, 611)
+
 [node name="ParallaxBackground" parent="." instance=ExtResource("7")]
 
 [node name="Trees" type="Node" parent="."]

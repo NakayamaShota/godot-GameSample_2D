@@ -2,6 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://ctgeb6paaoj77" path="res://gui/title_menu.tscn" id="1_y7k74"]
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="Title" type="CanvasLayer"]
 
 [node name="TitleMenu" parent="." instance=ExtResource("1_y7k74")]

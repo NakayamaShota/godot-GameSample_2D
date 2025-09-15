@@ -1,12 +1,12 @@
 extends Control
-class_name TitleMenu
+class_name StrategyMenu
 
 @export var fade_in_duration := 0.3
 @export var fade_out_duration := 0.2
 
 @onready var center_cont := $ColorRect/CenterContainer as CenterContainer
 @onready var coins_counter := $ColorRect/CoinsCounter as CoinsCounter
-@onready var creditMenu = $Credit
+#@onready var saishonomachi := $ColorRect/ParallaxBackground/ParallaxLayer/Area2D/saishonomachi as Sprite2D
 
 
 func close() -> void:
@@ -48,11 +48,13 @@ func open() -> void:
 
 
 func _on_start_button_pressed() -> void:
-	g_singleton.playerPosition = ""
-	g_singleton.coins_num = 0
-	g_singleton.playerHp = 3
-	g_singleton.newGameFlg = 1
-	get_tree().change_scene_to_file("res://game_singleplayer.tscn")
+#	saishonomachi.modulate = Color(0.28,0.43,0.63)
+	# tweenの作成
+	var tween = get_tree().create_tween()
+	# 1秒かけて透明にする
+#	tween.tween_property(saishonomachi, "modulate", Color(0.28,0.43,0.63,0), 0.5).set_trans(Tween.TRANS_CUBIC)
+	# 1秒かけて不透明にする
+#	tween.tween_property(saishonomachi, "modulate", Color(1,1,1,1), 0.5).set_trans(Tween.TRANS_CUBIC)
 
 
 ## セーブデータのファイルパス.
@@ -81,12 +83,6 @@ func _on_load_button_pressed() -> void:
 
 
 func _on_quit_button_pressed() -> void:
-	if visible:
 		get_tree().quit()
-
-
-func _on_credit_button_pressed() -> void:
-	creditMenu.creditOpen()
-
-func _on_strategy_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://strategy.tscn")
+	
+	

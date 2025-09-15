@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://s3nqgmu8p8m3"]
+
+[ext_resource type="PackedScene" uid="uid://b30pttktdx7jq" path="res://gui/strategy_menu.tscn" id="1_kswlm"]
+
+[node name="Strategy" type="CanvasLayer"]
+
+[node name="StrategyMenu" parent="." instance=ExtResource("1_kswlm")]
