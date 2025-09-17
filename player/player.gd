@@ -63,7 +63,7 @@ func dialogue(message := "") -> void:
 	#クリア時の分岐処理
 	if g_singleton.clearRoute == "recycle":
 		g_singleton.clearRoute = ""
-		get_tree().change_scene_to_file("res://title.tscn")
+		get_tree().change_scene_to_file("res://scene/title.tscn")
 	elif g_singleton.clearRoute == "break":
 		g_singleton.clearRoute = ""
 		get_tree().quit()

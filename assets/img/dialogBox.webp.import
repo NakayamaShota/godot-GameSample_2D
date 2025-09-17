@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b75yun6aflip7"
-path="res://.godot/imported/icon.webp-e94f9a68b0f625a567a797079e4d325f.ctex"
+uid="uid://bh53pp4qgen58"
+path="res://.godot/imported/dialogBox.webp-bdb4b609edd234af3d71b64b1d001def.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icon.webp"
-dest_files=["res://.godot/imported/icon.webp-e94f9a68b0f625a567a797079e4d325f.ctex"]
+source_file="res://assets/img/dialogBox.webp"
+dest_files=["res://.godot/imported/dialogBox.webp-bdb4b609edd234af3d71b64b1d001def.ctex"]
 
 [params]
 

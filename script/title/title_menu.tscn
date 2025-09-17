@@ -1,0 +1,129 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctgeb6paaoj77"]
+
+[ext_resource type="Theme" uid="uid://da4noqsij73it" path="res://script/strategy/theme.tres" id="1_k7r32"]
+[ext_resource type="Script" uid="uid://dvd03c2gf2fnw" path="res://script/title/title_menu.gd" id="2_2yl5q"]
+[ext_resource type="Texture2D" uid="uid://b0f5u8ikmoqs1" path="res://assets/img/titlePicture.webp" id="3_2yl5q"]
+[ext_resource type="Script" uid="uid://xenfxfkb3fkp" path="res://script/title/credit.gd" id="3_k7r32"]
+
+[node name="TitleMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_k7r32")
+script = ExtResource("2_2yl5q")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.294118)
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CenterContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="StartButton" type="Button" parent="ColorRect/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "RESUME"
+
+[node name="LoadButton" type="Button" parent="ColorRect/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "LOAD"
+
+[node name="CreditButton" type="Button" parent="ColorRect/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "CREDIT"
+
+[node name="QuitButton" type="Button" parent="ColorRect/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "QUIT"
+
+[node name="StrategyButton" type="Button" parent="ColorRect/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "STRATEGY"
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="ColorRect"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ColorRect/ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ColorRect/ParallaxBackground/ParallaxLayer"]
+visibility_layer = 512
+position = Vector2(399.5, 241)
+scale = Vector2(0.594494, 0.625)
+texture = ExtResource("3_2yl5q")
+
+[node name="Credit" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_k7r32")
+
+[node name="ColorRect2" type="ColorRect" parent="Credit"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 138.0
+offset_top = 27.0
+offset_right = 667.0
+offset_bottom = 426.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="Credit/ColorRect2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -31.0
+offset_top = -33.0
+offset_right = 29.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Credit/ColorRect2/CenterContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Credit/ColorRect2/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "~~Game Design~~
+へたれ
+
+~~Programmer~~
+へたれ
+
+~Special Thanks~
+Godot Engine Team and all contributors!
+"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Credit/ColorRect2/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/LoadButton" to="." method="_on_load_button_pressed"]
+[connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/CreditButton" to="." method="_on_credit_button_pressed"]
+[connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="ColorRect/CenterContainer/VBoxContainer/StrategyButton" to="." method="_on_strategy_button_pressed"]

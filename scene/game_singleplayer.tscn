@@ -1,0 +1,36 @@
+[gd_scene load_steps=8 format=3 uid="uid://n0clwnk2m2o7"]
+
+[ext_resource type="Script" uid="uid://cm3wr85ug6sch" path="res://player/game.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://ctgumjaytuoch" path="res://script/tutorial/level.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://vh7pmputa7r3" path="res://player/player.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://c7ai4bigaryci" path="res://script/common/pause_menu_singleplayer.tscn" id="4_x6l06"]
+[ext_resource type="PackedScene" uid="uid://dk03hhvhqv4nv" path="res://script/common/game_clear.tscn" id="5_2olji"]
+[ext_resource type="PackedScene" uid="uid://ctamax73ghi1l" path="res://script/common/battle_menu.tscn" id="6_hsw1h"]
+[ext_resource type="PackedScene" uid="uid://clu3thrg0581f" path="res://script/common/game_over.tscn" id="7_7ocom"]
+
+[node name="Game" type="Node"]
+process_mode = 3
+script = ExtResource("2")
+
+[node name="Level" parent="." instance=ExtResource("3")]
+
+[node name="Player" parent="Level" instance=ExtResource("4")]
+z_index = 3
+position = Vector2(91, 611)
+scale = Vector2(1, 1)
+
+[node name="InterfaceLayer" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="PauseMenu" parent="InterfaceLayer" instance=ExtResource("4_x6l06")]
+
+[node name="GameClear" parent="InterfaceLayer" instance=ExtResource("5_2olji")]
+
+[node name="BattleMenu2" parent="InterfaceLayer" instance=ExtResource("6_hsw1h")]
+
+[node name="GameOver" parent="InterfaceLayer" instance=ExtResource("7_7ocom")]
+
+[connection signal="coin_collected" from="Level/Player" to="InterfaceLayer/PauseMenu" method="_on_coin_collected"]
+[connection signal="game_clear" from="Level/Player" to="InterfaceLayer/GameClear" method="_on_player_game_clear"]
+[connection signal="game_over" from="Level/Player" to="InterfaceLayer/GameOver" method="_on_player_game_over"]
+[connection signal="player_damage" from="Level/Player" to="InterfaceLayer/BattleMenu2" method="_on_player_player_damage"]

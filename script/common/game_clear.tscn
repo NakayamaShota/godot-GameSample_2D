@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3 uid="uid://dk03hhvhqv4nv"]
+
+[ext_resource type="Script" uid="uid://ceg7po12h4jub" path="res://script/common/game_clear.gd" id="4_bqsxq"]
+
+[node name="GameClear" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_bqsxq")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 138.0
+offset_top = 27.0
+offset_right = 667.0
+offset_bottom = 426.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -41.0
+offset_top = -229.0
+offset_right = 19.0
+offset_bottom = -156.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect2/CenterContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="ColorRect2/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.976179, 0.489502, 0, 1)
+theme_override_font_sizes/font_size = 39
+text = "Game Clear!!"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect2/CenterContainer/VBoxContainer"]
+layout_mode = 2

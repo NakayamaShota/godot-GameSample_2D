@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b75yun6aflip7"
-path="res://.godot/imported/icon.webp-e94f9a68b0f625a567a797079e4d325f.ctex"
+uid="uid://2djet35jt16n"
+path="res://.godot/imported/saishonomachi.webp-6b9ab5fc5e44d107eb84a11287c019b0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icon.webp"
-dest_files=["res://.godot/imported/icon.webp-e94f9a68b0f625a567a797079e4d325f.ctex"]
+source_file="res://assets/img/saishonomachi.webp"
+dest_files=["res://.godot/imported/saishonomachi.webp-6b9ab5fc5e44d107eb84a11287c019b0.ctex"]
 
 [params]
 

@@ -1,0 +1,177 @@
+[gd_scene load_steps=10 format=3 uid="uid://cky6e5nl0nyod"]
+
+[ext_resource type="Material" uid="uid://djwm5nol3d801" path="res://assets/img/wind_sway.tres" id="1"]
+[ext_resource type="Texture2D" uid="uid://bxsmiv7k3fngt" path="res://assets/img/moving_platform.webp" id="2"]
+[ext_resource type="Texture2D" uid="uid://bj6am5nfc0k73" path="res://assets/img/grass_1.webp" id="3"]
+[ext_resource type="Texture2D" uid="uid://bju7r7jqn8bqy" path="res://assets/img/grass_2.webp" id="4"]
+[ext_resource type="Texture2D" uid="uid://upfcr5xg5fvh" path="res://assets/img/grass_3.webp" id="5"]
+[ext_resource type="Texture2D" uid="uid://cqydct6vajobg" path="res://assets/img/bush_1.webp" id="6"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(192, 27)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_m5ivw"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sui6v"]
+
+[node name="Platform" type="AnimatableBody2D"]
+z_index = -1
+position = Vector2(-1, 0)
+collision_layer = 8
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(11, 48)
+texture = ExtResource("2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(15, 51)
+shape = SubResource("1")
+one_way_collision = true
+
+[node name="g67" type="Sprite2D" parent="."]
+z_index = -1
+material = ExtResource("1")
+position = Vector2(88.8, 26.5)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3")
+
+[node name="g69" type="Sprite2D" parent="."]
+z_index = -1
+material = ExtResource("1")
+position = Vector2(9.80001, 25.5)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3")
+
+[node name="g68" type="Sprite2D" parent="."]
+z_index = -1
+material = ExtResource("1")
+position = Vector2(-40.2, 28.5)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3")
+
+[node name="g1" type="Sprite2D" parent="."]
+z_index = -1
+material = ExtResource("1")
+position = Vector2(-24.2, 28.5)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5")
+
+[node name="g3" type="Sprite2D" parent="."]
+z_index = -1
+material = ExtResource("1")
+position = Vector2(-70.2, 30.5)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5")
+
+[node name="g2" type="Sprite2D" parent="."]
+z_index = -1
+material = ExtResource("1")
+position = Vector2(42.8, 27.5)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5")
+
+[node name="g4" type="Sprite2D" parent="."]
+z_index = -1
+material = ExtResource("1")
+position = Vector2(-10.2, 33.5)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5")
+
+[node name="g14" type="Sprite2D" parent="."]
+z_index = -1
+material = ExtResource("1")
+position = Vector2(62.8, 25.5)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("4")
+
+[node name="g17" type="Sprite2D" parent="."]
+z_index = -1
+material = ExtResource("1")
+position = Vector2(76.8, 31.5)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("4")
+
+[node name="g16" type="Sprite2D" parent="."]
+z_index = -1
+material = ExtResource("1")
+position = Vector2(28.8, 27.5)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("4")
+
+[node name="g15" type="Sprite2D" parent="."]
+z_index = -1
+material = ExtResource("1")
+position = Vector2(-59.2, 28.5)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("4")
+
+[node name="B3" type="Sprite2D" parent="."]
+z_index = -2
+material = ExtResource("1")
+position = Vector2(20, 19)
+rotation = -3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("6")
+
+[node name="B4" type="Sprite2D" parent="."]
+z_index = -2
+material = ExtResource("1")
+position = Vector2(48.8, 21.5)
+rotation = -3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("6")
+
+[node name="B5" type="Sprite2D" parent="."]
+z_index = -2
+material = ExtResource("1")
+position = Vector2(-20.2, 22.5)
+texture = ExtResource("6")
+
+[node name="v31" type="Sprite2D" parent="."]
+z_index = 1
+material = ExtResource("1")
+position = Vector2(-21, 18)
+scale = Vector2(1, -1)
+texture = SubResource("CompressedTexture2D_m5ivw")
+
+[node name="v35" type="Sprite2D" parent="."]
+z_index = -1
+material = ExtResource("1")
+position = Vector2(35, 7)
+scale = Vector2(1, -1)
+texture = SubResource("CompressedTexture2D_m5ivw")
+
+[node name="v32" type="Sprite2D" parent="."]
+z_index = 1
+material = ExtResource("1")
+position = Vector2(87, 16)
+scale = Vector2(1, -1)
+texture = SubResource("CompressedTexture2D_m5ivw")
+
+[node name="v33" type="Sprite2D" parent="."]
+z_index = 1
+material = ExtResource("1")
+position = Vector2(-85, 15)
+scale = Vector2(1, -1)
+texture = SubResource("CompressedTexture2D_sui6v")
+
+[node name="v34" type="Sprite2D" parent="."]
+z_index = 1
+material = ExtResource("1")
+position = Vector2(56, 18)
+scale = Vector2(1, -1)
+texture = SubResource("CompressedTexture2D_sui6v")
+
+[node name="v36" type="Sprite2D" parent="."]
+z_index = -1
+material = ExtResource("1")
+position = Vector2(-9, 11)
+scale = Vector2(1, -1)
+texture = SubResource("CompressedTexture2D_sui6v")
+
+[node name="v37" type="Sprite2D" parent="."]
+z_index = -1
+material = ExtResource("1")
+position = Vector2(-61, 7)
+scale = Vector2(1, -1)
+texture = SubResource("CompressedTexture2D_sui6v")

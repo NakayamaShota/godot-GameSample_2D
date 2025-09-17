@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://df7ddsoclivwe"]
+[gd_scene load_steps=14 format=3 uid="uid://7i4su4kfiqiv"]
 
 [ext_resource type="Texture2D" uid="uid://coj0d33vyyqx1" path="res://assets/img/bullet.webp" id="1"]
-[ext_resource type="Script" uid="uid://xb35rakv4vtt" path="res://player/bullet.gd" id="2"]
+[ext_resource type="Script" uid="uid://cjb0bhhs08hth" path="res://enemy/girl/bullet_enemy.gd" id="1_hhbk2"]
+[ext_resource type="Texture2D" uid="uid://bwa4vnbyqe8f0" path="res://assets/img/bullet_red.webp" id="3_ch4ky"]
 
 [sub_resource type="CanvasItemMaterial" id="1"]
 
@@ -89,20 +90,19 @@ _data = {
 &"destroy": SubResource("5")
 }
 
-[node name="Bullet" type="RigidBody2D"]
+[node name="BulletEnemy" type="RigidBody2D"]
 z_index = 5
 material = SubResource("1")
 collision_layer = 0
-collision_mask = 26
+collision_mask = 27
 mass = 0.0283333
 gravity_scale = 0.1
 continuous_cd = 2
 contact_monitor = true
 max_contacts_reported = 1
-script = ExtResource("2")
+script = ExtResource("1_hhbk2")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-self_modulate = Color(1, 1, 1, 0)
 material = SubResource("2")
 emitting = false
 texture = ExtResource("1")
@@ -114,7 +114,7 @@ color = Color(1, 1, 1, 0.705882)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("3")
-texture = ExtResource("1")
+texture = ExtResource("3_ch4ky")
 
 [node name="Glow" type="Sprite2D" parent="Sprite2D"]
 modulate = Color(0.501961, 1, 1, 0.25098)

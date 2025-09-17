@@ -1,0 +1,187 @@
+[gd_scene load_steps=15 format=3 uid="uid://b30pttktdx7jq"]
+
+[ext_resource type="Theme" uid="uid://da4noqsij73it" path="res://script/strategy/theme.tres" id="1_k7r32"]
+[ext_resource type="Script" uid="uid://cmry7tspa5gyj" path="res://script/strategy/strategy_menu.gd" id="2_mbwqn"]
+[ext_resource type="Texture2D" uid="uid://b0f5u8ikmoqs1" path="res://assets/img/titlePicture.webp" id="3_2yl5q"]
+[ext_resource type="Texture2D" uid="uid://2djet35jt16n" path="res://assets/img/saishonomachi.webp" id="4_mbwqn"]
+[ext_resource type="Script" uid="uid://dyeu21170rwqg" path="res://script/strategy/saishonomachi.gd" id="5_ehkm1"]
+[ext_resource type="Shape2D" uid="uid://c67sncy8fhreu" path="res://script/strategy/strategy_menu.tres" id="6_34f6o"]
+[ext_resource type="Script" uid="uid://bo2jhn4y04kqt" path="res://script/strategy/castle.gd" id="7_jl18o"]
+[ext_resource type="Texture2D" uid="uid://bh53pp4qgen58" path="res://assets/img/dialogBox.webp" id="7_jtm85"]
+[ext_resource type="Texture2D" uid="uid://q3xv2nwakj5f" path="res://assets/img/castle.webp" id="8_nvsar"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ix56g"]
+size = Vector2(165, 219)
+
+[sub_resource type="Theme" id="Theme_3fe1d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jtm85"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3fe1d"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jl18o"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="StrategyMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_k7r32")
+script = ExtResource("2_mbwqn")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.294118)
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.928
+anchor_right = 0.216
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/CenterContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/CenterContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="SaveButton" type="Button" parent="ColorRect/CenterContainer/HBoxContainer"]
+layout_mode = 2
+text = "SAVE"
+
+[node name="LoadButton" type="Button" parent="ColorRect/CenterContainer/HBoxContainer"]
+layout_mode = 2
+text = "LOAD"
+
+[node name="QuitButton" type="Button" parent="ColorRect/CenterContainer/HBoxContainer"]
+layout_mode = 2
+text = "QUIT"
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="ColorRect"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ColorRect/ParallaxBackground"]
+position = Vector2(770, 124)
+
+[node name="Sprite2D" type="Sprite2D" parent="ColorRect/ParallaxBackground/ParallaxLayer"]
+light_mask = 512
+visibility_layer = 512
+position = Vector2(-371, 117)
+scale = Vector2(0.594494, 0.625)
+texture = ExtResource("3_2yl5q")
+
+[node name="Area2D" type="Area2D" parent="ColorRect/ParallaxBackground/ParallaxLayer"]
+position = Vector2(-770, -124)
+script = ExtResource("5_ehkm1")
+
+[node name="saishonomachi" type="Sprite2D" parent="ColorRect/ParallaxBackground/ParallaxLayer/Area2D"]
+modulate = Color(0.0345, 0.69, 0, 0.792157)
+position = Vector2(399, 241)
+scale = Vector2(0.594, 0.625)
+texture = ExtResource("4_mbwqn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/ParallaxBackground/ParallaxLayer/Area2D"]
+position = Vector2(31, 447)
+shape = ExtResource("6_34f6o")
+
+[node name="Castle" type="Area2D" parent="ColorRect/ParallaxBackground/ParallaxLayer"]
+position = Vector2(-770, -124)
+script = ExtResource("7_jl18o")
+
+[node name="castle" type="Sprite2D" parent="ColorRect/ParallaxBackground/ParallaxLayer/Castle"]
+position = Vector2(399, 241)
+scale = Vector2(0.594, 0.625)
+texture = ExtResource("8_nvsar")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/ParallaxBackground/ParallaxLayer/Castle"]
+position = Vector2(128.5, 371.5)
+shape = SubResource("RectangleShape2D_ix56g")
+
+[node name="CenterContainer2" type="CenterContainer" parent="ColorRect"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.068
+anchor_right = 0.409
+anchor_bottom = 0.443
+offset_right = 56.0
+offset_bottom = 105.0
+scale = Vector2(0.8, 0.8)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CenterContainer2"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/CenterContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="ColorRect/CenterContainer2/VBoxContainer/MarginContainer"]
+light_mask = 256
+visibility_layer = 256
+position = Vector2(101.5, 120.2)
+scale = Vector2(0.6, 3.1625)
+texture = ExtResource("7_jtm85")
+
+[node name="AttackButton" type="Button" parent="ColorRect/CenterContainer2/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_3fe1d")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_jtm85")
+text = "攻め込む"
+
+[node name="RestButton" type="Button" parent="ColorRect/CenterContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_3fe1d")
+text = "休憩する（HP回復）"
+
+[node name="ExplainButton" type="Button" parent="ColorRect/CenterContainer2/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_3fe1d")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_jtm85")
+text = "説得する"
+
+[node name="EventButton" type="Button" parent="ColorRect/CenterContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_jl18o")
+text = "イベントその①"
+
+[connection signal="pressed" from="ColorRect/CenterContainer/HBoxContainer/SaveButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="ColorRect/CenterContainer/HBoxContainer/LoadButton" to="." method="_on_load_button_pressed"]
+[connection signal="pressed" from="ColorRect/CenterContainer/HBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="input_event" from="ColorRect/ParallaxBackground/ParallaxLayer/Area2D" to="ColorRect/ParallaxBackground/ParallaxLayer/Area2D" method="_on_input_event"]
+[connection signal="mouse_entered" from="ColorRect/ParallaxBackground/ParallaxLayer/Area2D" to="ColorRect/ParallaxBackground/ParallaxLayer/Area2D" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ColorRect/ParallaxBackground/ParallaxLayer/Area2D" to="ColorRect/ParallaxBackground/ParallaxLayer/Area2D" method="_on_mouse_exited"]
+[connection signal="input_event" from="ColorRect/ParallaxBackground/ParallaxLayer/Castle" to="ColorRect/ParallaxBackground/ParallaxLayer/Castle" method="_on_input_event"]
+[connection signal="mouse_entered" from="ColorRect/ParallaxBackground/ParallaxLayer/Castle" to="ColorRect/ParallaxBackground/ParallaxLayer/Castle" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ColorRect/ParallaxBackground/ParallaxLayer/Castle" to="ColorRect/ParallaxBackground/ParallaxLayer/Castle" method="_on_mouse_exited"]
+[connection signal="pressed" from="ColorRect/CenterContainer2/VBoxContainer/AttackButton" to="." method="_on_attack_button_pressed"]
+[connection signal="pressed" from="ColorRect/CenterContainer2/VBoxContainer/RestButton" to="." method="_on_rest_button_pressed"]
+[connection signal="pressed" from="ColorRect/CenterContainer2/VBoxContainer/ExplainButton" to="." method="_on_explain_button_pressed"]
+[connection signal="pressed" from="ColorRect/CenterContainer2/VBoxContainer/EventButton" to="." method="_on_event_button_pressed"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b75yun6aflip7"
-path="res://.godot/imported/icon.webp-e94f9a68b0f625a567a797079e4d325f.ctex"
+uid="uid://upfcr5xg5fvh"
+path="res://.godot/imported/grass_3.webp-1f20842ad85a0ba42b9024433b4c3bed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icon.webp"
-dest_files=["res://.godot/imported/icon.webp-e94f9a68b0f625a567a797079e4d325f.ctex"]
+source_file="res://assets/img/grass_3.webp"
+dest_files=["res://.godot/imported/grass_3.webp-1f20842ad85a0ba42b9024433b4c3bed.ctex"]
 
 [params]
 

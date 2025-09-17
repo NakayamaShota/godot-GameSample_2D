@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b75yun6aflip7"
-path="res://.godot/imported/icon.webp-e94f9a68b0f625a567a797079e4d325f.ctex"
+uid="uid://q3xv2nwakj5f"
+path="res://.godot/imported/castle.webp-df78b7579e3572edc46cc98b3e0a3015.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icon.webp"
-dest_files=["res://.godot/imported/icon.webp-e94f9a68b0f625a567a797079e4d325f.ctex"]
+source_file="res://assets/img/castle.webp"
+dest_files=["res://.godot/imported/castle.webp-df78b7579e3572edc46cc98b3e0a3015.ctex"]
 
 [params]
 

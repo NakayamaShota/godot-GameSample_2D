@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://ccorf7o6qbm73"]
-
-[ext_resource type="AudioStream" uid="uid://ckeqohoydx06f" path="res://game_clear.ogg" id="1_2cfgn"]
-
-[node name="GameClearMusic" type="AudioStreamPlayer"]
-process_mode = 1
-stream = ExtResource("1_2cfgn")
-volume_db = -3.0

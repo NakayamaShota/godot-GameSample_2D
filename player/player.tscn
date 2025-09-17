@@ -1,9 +1,9 @@
 [gd_scene load_steps=20 format=3 uid="uid://vh7pmputa7r3"]
 
-[ext_resource type="Texture2D" uid="uid://b23elfeimhew1" path="res://player/player.webp" id="2_qjkh3"]
+[ext_resource type="Texture2D" uid="uid://b23elfeimhew1" path="res://assets/img/player.webp" id="2_qjkh3"]
 [ext_resource type="Script" uid="uid://3kovi8hshvar" path="res://player/player.gd" id="3"]
-[ext_resource type="AudioStream" uid="uid://sjod173axgwf" path="res://player/jump.wav" id="5"]
-[ext_resource type="AudioStream" uid="uid://b01brytl75mwa" path="res://player/shoot.wav" id="6"]
+[ext_resource type="AudioStream" uid="uid://sjod173axgwf" path="res://assets/sound/jump.wav" id="5"]
+[ext_resource type="AudioStream" uid="uid://b01brytl75mwa" path="res://assets/sound/shoot.wav" id="6"]
 [ext_resource type="Script" uid="uid://c3cm5mpl2xelv" path="res://player/gun.gd" id="8"]
 
 [sub_resource type="Animation" id="Animation_g6k8r"]

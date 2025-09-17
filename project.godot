@@ -19,16 +19,20 @@ where the player can jump, walk on slopes, fire bullets,
 interact with enemies, and more. It contains one closed
 level, and the player is invincible, unlike the enemies."
 config/tags=PackedStringArray("2d", "demo", "tilemap")
-run/main_scene="uid://chiyfhobuy2xn"
+run/main_scene="uid://dtp0rgsg4jnhj"
 config/features=PackedStringArray("4.4")
 config/icon="res://icon.webp"
 
+[audio]
+
+buses/default_bus_layout="res://assets/sound/default_bus_layout.tres"
+
 [autoload]
 
-Music="*res://music.tscn"
-g_singleton="*res://gui/singleton.gd"
+g_singleton="*res://script/common/singleton.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
-GameClearMusic="*res://game_clear_music.tscn"
+Music="*res://assets/sound/music.tscn"
+GameClearMusic="*res://assets/sound/game_clear_music.tscn"
 
 [debug]
 
