@@ -5,11 +5,47 @@ class_name StrategyMenu
 @export var fade_out_duration := 0.2
 
 @onready var center_cont := $ColorRect/CenterContainer as CenterContainer
-@onready var coins_counter := $ColorRect/CoinsCounter as CoinsCounter
-#@onready var saishonomachi := $ColorRect/ParallaxBackground/ParallaxLayer/Area2D/saishonomachi as Sprite2D
+@onready var castle := $ColorRect/ParallaxBackground/ParallaxLayer/Castle/castle as Sprite2D
+@onready var animationPlayer := $Tutorial as AnimationPlayer
+@onready var child_1 := $Tutorial/child1 as Sprite2D
+@onready var child_2 := $Tutorial/child2 as Sprite2D
+@onready var bard := $Tutorial/bard as Sprite2D
+@onready var bar := $Tutorial/bar as Sprite2D
+
 
 ## セーブデータのファイルパス.
 const PATH_SAVEDATA = "user://savedata.txt"
+
+func _ready() -> void:
+	if g_singleton.progress == "newgame":
+		op_play()
+
+func op_play() -> void:
+	center_cont.visible = false
+	self.mouse_filter = Control.MOUSE_FILTER_STOP
+	#tweenの作成
+	var tween = get_tree().create_tween()
+	tween.tween_property(castle, "modulate", Color(255,194,29,0), 1).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(castle, "modulate", Color(1,1,1,1), 1).set_trans(Tween.TRANS_CUBIC)
+	await get_tree().create_timer(2.3).timeout
+	DialogueManager.show_dialogue_balloon(load("res://dialogue/opening.dialogue"), "narration")
+	await DialogueManager.dialogue_ended
+	bar.visible = true
+	child_1.visible = true
+	child_2.visible = true
+	animationPlayer.play("children")
+	DialogueManager.show_dialogue_balloon(load("res://dialogue/opening.dialogue"), "children")
+	await DialogueManager.dialogue_ended
+	bard.visible = true
+	DialogueManager.show_dialogue_balloon(load("res://dialogue/opening.dialogue"), "start")
+	await DialogueManager.dialogue_ended
+	child_1.visible = false
+	child_2.visible = false
+	bard.visible = false
+	bar.visible = false
+
+	self.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	center_cont.visible = true
 
 func close() -> void:
 	var tween := create_tween()

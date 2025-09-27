@@ -51,8 +51,8 @@ func _on_start_button_pressed() -> void:
 	g_singleton.playerPosition = ""
 	g_singleton.coins_num = 0
 	g_singleton.playerHp = 3
-	g_singleton.newGameFlg = 1
-	get_tree().change_scene_to_file("res://scene/game_singleplayer.tscn")
+	g_singleton.progress = "newgame"
+	get_tree().change_scene_to_file("res://scene/strategy.tscn")
 
 
 ## セーブデータのファイルパス.

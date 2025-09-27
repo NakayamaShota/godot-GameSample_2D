@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b30pttktdx7jq"]
+[gd_scene load_steps=22 format=3 uid="uid://b30pttktdx7jq"]
 
 [ext_resource type="Theme" uid="uid://da4noqsij73it" path="res://script/strategy/theme.tres" id="1_k7r32"]
 [ext_resource type="Script" uid="uid://cmry7tspa5gyj" path="res://script/strategy/strategy_menu.gd" id="2_mbwqn"]
@@ -9,6 +9,10 @@
 [ext_resource type="Script" uid="uid://bo2jhn4y04kqt" path="res://script/strategy/castle.gd" id="7_jl18o"]
 [ext_resource type="Texture2D" uid="uid://bh53pp4qgen58" path="res://assets/img/dialogBox.webp" id="7_jtm85"]
 [ext_resource type="Texture2D" uid="uid://q3xv2nwakj5f" path="res://assets/img/castle.webp" id="8_nvsar"]
+[ext_resource type="Texture2D" uid="uid://cepqo5jfcnex" path="res://assets/img/child_1.webp" id="10_facde"]
+[ext_resource type="Texture2D" uid="uid://ckccbh3tdikk8" path="res://assets/img/child_2.webp" id="11_xx7k6"]
+[ext_resource type="Texture2D" uid="uid://7t2d32msupj4" path="res://assets/img/bard.webp" id="12_mvsqe"]
+[ext_resource type="Texture2D" uid="uid://cn15bhkd7hhge" path="res://assets/img/bar.webp" id="13_lkcpo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ix56g"]
 size = Vector2(165, 219)
@@ -28,6 +32,114 @@ bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jl18o"]
 bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_facde"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tutorial/child1:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tutorial/child1:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(126, 309.25)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Tutorial/child2:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Tutorial/child2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xx7k6"]
+resource_name = "children"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tutorial/child1:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(0.965936),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tutorial/child1:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 0.433333, 0.966667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(126, 309.25), Vector2(300, 309.25), Vector2(160, 309.25)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Tutorial/child2:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Tutorial/child2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.433333, 0.966667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(526, 338), Vector2(100, 338), Vector2(200, 338)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mvsqe"]
+_data = {
+&"RESET": SubResource("Animation_facde"),
+&"children": SubResource("Animation_xx7k6")
+}
 
 [node name="StrategyMenu" type="Control"]
 process_mode = 3
@@ -92,17 +204,16 @@ position = Vector2(-371, 117)
 scale = Vector2(0.594494, 0.625)
 texture = ExtResource("3_2yl5q")
 
-[node name="Area2D" type="Area2D" parent="ColorRect/ParallaxBackground/ParallaxLayer"]
+[node name="Saishonomachi" type="Area2D" parent="ColorRect/ParallaxBackground/ParallaxLayer"]
 position = Vector2(-770, -124)
 script = ExtResource("5_ehkm1")
 
-[node name="saishonomachi" type="Sprite2D" parent="ColorRect/ParallaxBackground/ParallaxLayer/Area2D"]
-modulate = Color(0.0345, 0.69, 0, 0.792157)
+[node name="saishonomachi" type="Sprite2D" parent="ColorRect/ParallaxBackground/ParallaxLayer/Saishonomachi"]
 position = Vector2(399, 241)
 scale = Vector2(0.594, 0.625)
 texture = ExtResource("4_mbwqn")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/ParallaxBackground/ParallaxLayer/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/ParallaxBackground/ParallaxLayer/Saishonomachi"]
 position = Vector2(31, 447)
 shape = ExtResource("6_34f6o")
 
@@ -172,12 +283,42 @@ layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_jl18o")
 text = "イベントその①"
 
+[node name="Tutorial" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_mvsqe")
+}
+
+[node name="bar" type="Sprite2D" parent="Tutorial"]
+visible = false
+light_mask = 512
+visibility_layer = 512
+position = Vector2(399, 241.5)
+scale = Vector2(0.416667, 0.447222)
+texture = ExtResource("13_lkcpo")
+
+[node name="child1" type="Sprite2D" parent="Tutorial"]
+visible = false
+position = Vector2(126, 309.25)
+scale = Vector2(0.101, 0.112167)
+texture = ExtResource("10_facde")
+
+[node name="child2" type="Sprite2D" parent="Tutorial"]
+visible = false
+scale = Vector2(0.09325, 0.100083)
+texture = ExtResource("11_xx7k6")
+
+[node name="bard" type="Sprite2D" parent="Tutorial"]
+visible = false
+position = Vector2(641, 296)
+scale = Vector2(0.249167, 0.256667)
+texture = ExtResource("12_mvsqe")
+
 [connection signal="pressed" from="ColorRect/CenterContainer/HBoxContainer/SaveButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="ColorRect/CenterContainer/HBoxContainer/LoadButton" to="." method="_on_load_button_pressed"]
 [connection signal="pressed" from="ColorRect/CenterContainer/HBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="input_event" from="ColorRect/ParallaxBackground/ParallaxLayer/Area2D" to="ColorRect/ParallaxBackground/ParallaxLayer/Area2D" method="_on_input_event"]
-[connection signal="mouse_entered" from="ColorRect/ParallaxBackground/ParallaxLayer/Area2D" to="ColorRect/ParallaxBackground/ParallaxLayer/Area2D" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="ColorRect/ParallaxBackground/ParallaxLayer/Area2D" to="ColorRect/ParallaxBackground/ParallaxLayer/Area2D" method="_on_mouse_exited"]
+[connection signal="input_event" from="ColorRect/ParallaxBackground/ParallaxLayer/Saishonomachi" to="ColorRect/ParallaxBackground/ParallaxLayer/Saishonomachi" method="_on_input_event"]
+[connection signal="mouse_entered" from="ColorRect/ParallaxBackground/ParallaxLayer/Saishonomachi" to="ColorRect/ParallaxBackground/ParallaxLayer/Saishonomachi" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ColorRect/ParallaxBackground/ParallaxLayer/Saishonomachi" to="ColorRect/ParallaxBackground/ParallaxLayer/Saishonomachi" method="_on_mouse_exited"]
 [connection signal="input_event" from="ColorRect/ParallaxBackground/ParallaxLayer/Castle" to="ColorRect/ParallaxBackground/ParallaxLayer/Castle" method="_on_input_event"]
 [connection signal="mouse_entered" from="ColorRect/ParallaxBackground/ParallaxLayer/Castle" to="ColorRect/ParallaxBackground/ParallaxLayer/Castle" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="ColorRect/ParallaxBackground/ParallaxLayer/Castle" to="ColorRect/ParallaxBackground/ParallaxLayer/Castle" method="_on_mouse_exited"]

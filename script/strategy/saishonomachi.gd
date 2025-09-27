@@ -9,7 +9,12 @@ extends Area2D
 var color_val : Color
 
 func _ready() -> void:
-	color_val = saishonomachi.modulate
+	if g_singleton.saishonomachiClearFlg == 1:
+		color_val = Color(0.5247, 1.0, 0.08, 1.0)
+		saishonomachi.modulate = color_val
+	else:
+		color_val = Color(1,1,1)
+		
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if (event.is_action_pressed("click")) :

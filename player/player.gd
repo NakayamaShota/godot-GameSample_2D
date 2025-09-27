@@ -41,7 +41,7 @@ func _ready():
 	if g_singleton.playerPosition :
 		self.set_position(g_singleton.playerPosition)
 
-	if g_singleton.newGameFlg  == 1:
+	if g_singleton.progress  == "newgame":
 		dialogue("tutorial")
 
 func dialogue(message := "") -> void:
@@ -50,7 +50,7 @@ func dialogue(message := "") -> void:
 
 	if message == "tutorial":
 		$"/root/Music".play()
-		g_singleton.newGameFlg = 0
+		g_singleton.progress = "firstStage"
 		DialogueManager.show_dialogue_balloon(load("res://dialogue/tutorial.dialogue"), "start")
 		await DialogueManager.dialogue_ended
 	elif message == "gameClear":

@@ -33,6 +33,7 @@ g_singleton="*res://script/common/singleton.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 Music="*res://assets/sound/music.tscn"
 GameClearMusic="*res://assets/sound/game_clear_music.tscn"
+Strategy="*res://script/strategy/strategy_menu.gd"
 
 [debug]
 
@@ -190,7 +191,7 @@ click={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogue/tutorial.dialogue", "res://dialogue/clear_message.dialogue", "res://dialogue/default.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogue/tutorial.dialogue", "res://dialogue/clear_message.dialogue", "res://dialogue/default.dialogue", "res://dialogue/opening.dialogue")
 
 [layer_names]
 
